@@ -5,6 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//Database configurations
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/AlduinDB'); //MongoDBPractice is the name of the database
+
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
