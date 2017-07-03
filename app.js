@@ -5,11 +5,20 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-//Database configurations
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/AlduinDB'); //MongoDBPractice is the name of the database
+//Database BS
+var mysql = require('mysql');
 
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "password",
+    database: "AlduinDB"
+});
+
+con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+});
 
 var index = require('./routes/index');
 var users = require('./routes/users');
