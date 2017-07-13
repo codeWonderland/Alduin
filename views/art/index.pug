@@ -1,3 +1,8 @@
 extends ../../node_modules/jade-bootstrap/layouts/starter
 
 append body
+    script.
+        var message = !{JSON.stringify(message)}
+        $(document).ready(function() {
+            console.log(message)
+        })
