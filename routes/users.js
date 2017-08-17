@@ -61,8 +61,8 @@ router.post('/addUser', function(req, res, next) {
     res.send('OK')
 });
 
-// GET all usernames
-router.get('/usernames', function(req, res, next) {
+// GET all users
+router.get('/getUsers', function(req, res, next) {
     var con = mysql.createConnection({
         host: "localhost",
         user: "root",
@@ -72,7 +72,7 @@ router.get('/usernames', function(req, res, next) {
     
     con.connect(function(err) {
         if (err) throw err;
-        con.query("SELECT UserName FROM User", function (err, result, fields) {
+        con.query("SELECT DisplayName, _Id FROM User", function (err, result, fields) {
             if (err) throw err;
             res.send(result);
         });
