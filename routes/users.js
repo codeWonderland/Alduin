@@ -4,16 +4,17 @@ var mysql = require('mysql');
 
 ///* GET users listing. */
 //router.get('/', function(req, res, next) {
-//    res.render('users/index', { title: 'Stories' });
+//    res.render('users/index', { title: '' });
 //});
 
 // POST new user
-// Next Steps:
+// todo: Next Steps:
 // - On client side we should be encrypting sensitive information locally
 // - Then on the server side we decrypt it
 // - This way packet sniffing will prove ineffective and will add a layer of security
 // - My suggestion would be to translate the password to binary and use XOR encryption
 // - We should also check to see if there is already a person with this username in our database
+// - Furthermore we should be adding the user's mac address to their profile as well as their email
 router.post('/addUser', function(req, res, next) {
     var UserName = req.body.UserName;
     var Password = req.body.Password;
@@ -79,7 +80,111 @@ router.get('/getUsers', function(req, res, next) {
     });
 });
 
-// DELETE user
+// GET all usernames
+// Would be used mainly to compare upon account creation to stop
+// multiple people from having the same username
+router.get('/getUsernames', function(req, res, next) {
+    var con = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "password",
+        database: "AlduinDB"
+    });
+    
+    con.connect(function(err) {
+        if (err) throw err;
+        con.query("SELECT UserName FROM User", function (err, result, fields) {
+            if (err) throw err;
+            res.send(result);
+        });
+    });
+});
+
+// GET all emails
+// Would be used mainly to compare upon account creation to stop
+// multiple people from having the same email
+router.get('/getEmails', function(req, res, next) {
+    var con = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "password",
+        database: "AlduinDB"
+    });
+    
+    con.connect(function(err) {
+        if (err) throw err;
+        con.query("SELECT Email FROM User", function (err, result, fields) {
+            if (err) throw err;
+            res.send(result);
+        });
+    });
+});
+
+// todo: GET logged in state
+// Would be used mainly to maintain a logged in state
+router.get('/getLoggedInState', function(req, res, next) {
+    var username = req.body.UserName;
+    var macAddress = req.body.macAddress;
+    var currentTime = req.body.currentTime;
+    var con = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "password",
+        database: "AlduinDB"
+    });
+    
+    // here we want to check the macAddress against the most recent mac address used in the database,
+    // this will be changed every time the user logs in on a new computer
+    // if it matches we want to return false to the user
+    // we also want to check to see that the last logged in time was less than 5 minutes previous
+    con.connect(function(err) {
+        if (err) throw err;
+        con.query("SELECT MAC FROM User WHERE UserName='" + username + "'", function (err, result, fields) {
+            if (err) throw err;
+            res.send(result);
+        });
+    });
+});
+
+// GET Specific User AND Render their Page
+router.get('/:id', function(req, res, next) {
+    var userToFetch = req.params.id;
+    var con = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "password",
+        database: "AlduinDB"
+    });
+    
+    con.connect(function(err) {
+        if (err) throw err;
+        con.query("select DisplayName, City, PrimaryGame, SecondaryGame, Bio, LastLoggedIn, ProfilePicture from User where _Id='" + userToFetch + "'", function (err, result, fields) {
+            if (err) throw err;
+            res.render('users/profile', { user: result});
+        });
+    });
+});
+
+// GET Specific User AND return data to the requester
+router.get('/userInfo/:id', function(req, res, next) {
+    var userToFetch = req.params.id;
+    var con = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "password",
+        database: "AlduinDB"
+    });
+    
+    con.connect(function(err) {
+        if (err) throw err;
+        con.query("SELECT DisplayName, _Id FROM User", function (err, result, fields) {
+            if (err) throw err;
+            res.send(result);
+        });
+    });
+});
+
+// TODO: DELETE user
 // We want the id of the user to be deleted in the params
 // And the authentication to exist in the request body
 // For the record we could do all of this in a post request instead, but this makes things cleaner
@@ -112,7 +217,7 @@ router.delete('/deleteUser/:id', function(req, res, next) {
     });
 });
 
-// Update User is almost identical to DELETE user
+// TODO: Update User is almost identical to DELETE user
 router.put('/updateUser/:id', function (req, res, next) {
     var userToDelete = req.params.id;
     var UserName = req.body.UserName;
