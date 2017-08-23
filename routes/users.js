@@ -26,7 +26,8 @@ router.post('/addUser', function(req, res, next) {
     var Bio = req.body.Bio;
     var LastLoggedIn = req.body.LastLoggedIn;
     var ProfilePicture = req.body.ProfilePicture; //This will be the filename of the profile picture that will exhist in /images/avatars
-    if (!((UserName === null || UserName === '') || (Password === null || Password === '') || DOB === null || LastLoggedIn === null)) {
+    var Email = req.body.Email;
+    if (!((UserName === null || UserName === '') || (Password === null || Password === '') || DOB === null || LastLoggedIn === null || Email === null)) {
         if (DisplayName === null)
             DisplayName = UserName;
         if (City === null)
@@ -50,8 +51,9 @@ router.post('/addUser', function(req, res, next) {
             
             con.connect(function(err) {
                 if (err) throw err;
-                var sql = 'INSERT INTO User (UserName, Password, DisplayName, DOB, City, PrimaryGame, SecondaryGame, Bio, LastLoggedIn, ProfilePicture) VALUES (\'' +
-                    UserName + '\', \'' + Password + '\', \'' + DisplayName + '\', ' + DOB + ', \'' + City + '\', \'' + PrimaryGame + '\', \'' + SecondaryGame + '\', \'' + Bio + '\', ' + LastLoggedIn + ', \'' + ProfilePicture + '\')';
+                var sql = 'INSERT INTO User (UserName, Password, DisplayName, DOB, City, PrimaryGame, SecondaryGame, Bio, LastLoggedIn, ProfilePicture, Email) VALUES (\'' +
+                    UserName + '\', \'' + Password + '\', \'' + DisplayName + '\', ' + DOB + ', \'' + City + '\', \'' + PrimaryGame + '\', \'' + SecondaryGame + '\', \'' + Bio + '\', ' + LastLoggedIn + ', \'' + ProfilePicture + '\', \'' + Email + '\')';
+                console.log(sql);
                 con.query(sql, function (err, result) {
                     if (err) throw err;
                     else console.log("1 record inserted");

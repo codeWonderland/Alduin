@@ -1,8 +1,33 @@
+* {
+  font-family: 'Yatra One', cursive;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Yatra One', cursive;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  color: #000000;
+}
+
+.title {
+  font-size: 4em;
+}
+
+.champ-card {
+  border-radius: 3px;
+  border: 1px solid #eee;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fffefe;
+
+  h1, h2, h3, h4, h5 {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 }
