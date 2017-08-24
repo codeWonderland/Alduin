@@ -79,6 +79,16 @@
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
   };
 
+  this.convertMsToDate = function(ms) {
+    var day, month, months, time, year;
+    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    time = new Date(ms);
+    year = time.getFullYear();
+    month = time.getMonth();
+    day = time.getDate();
+    return months[month] + ' ' + day + ', ' + year;
+  };
+
 }).call(this);
 
 //# sourceMappingURL=global.js.map

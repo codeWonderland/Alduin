@@ -39,7 +39,7 @@ router.get('/:id', function(req, res, next) {
         if (err) throw err;
         con.query("select DisplayName, City, PrimaryGame, SecondaryGame, Bio, LastLoggedIn, ProfilePicture from User where _Id='" + userToFetch + "'", function (err, result, fields) {
             if (err) throw err;
-            res.render('creators/profile', { user: result});
+            res.render('creators/profile', { user: JSON.stringify(result[0])});
         });
     });
 });

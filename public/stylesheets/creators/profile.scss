@@ -1,0 +1,13 @@
+.user-detail {
+  color: #808080;
+}
+
+@media only screen and (max-width: 768px) {
+  .user-detail {
+    margin-bottom: 0;
+
+    &:nth-child(3) {
+      margin-top: 10px;
+    }
+  }
+}

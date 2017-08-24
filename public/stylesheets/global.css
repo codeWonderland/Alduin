@@ -23,4 +23,12 @@ a {
   .champ-card h1:first-child, .champ-card h2:first-child, .champ-card h3:first-child, .champ-card h4:first-child, .champ-card h5:first-child {
     margin-top: 0; }
 
+.btn {
+  font-size: 1.5em;
+  background-color: #00b6ff;
+  color: #fff; }
+  .btn:hover {
+    background-color: #00a0d4;
+    color: #fff; }
+
 /*# sourceMappingURL=global.css.map */

@@ -1,4 +1,10 @@
 extends ../../node_modules/jade-bootstrap/layouts/starter
 
+append styles
+    link(href='/stylesheets/creators/profile.min.css', rel='stylesheet')
+
 append body
-    h1 hello world
+    div#creator-container
+    script(src='/javascripts/creators/profile.min.js')
+    script.
+        var user = !{user}
