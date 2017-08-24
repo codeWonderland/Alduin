@@ -58,3 +58,25 @@ $(document).ready ->
   day = time.getDate()
   
   return months[month] + ' ' + day + ', ' + year
+
+@textToBin = (text) ->
+  length = text.length
+  output = []
+  i = 0
+  while i < length
+    bin = text[i].charCodeAt().toString(2)
+    output.push Array(8 - (bin.length) + 1).join('0') + bin
+    i++
+  output.join ' '
+
+@encrypt = (message) ->
+  key = textToBin(message[message.length - 1])
+  output = []
+  i = 0
+  while i < message.length - 1
+    bin = textToBin(message[i])
+    enc = bin ^ key
+    output.push ('00000000' + enc).slice(-8)
+    i++
+  output.push key
+  output.join ' '

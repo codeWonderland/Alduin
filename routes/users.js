@@ -236,4 +236,23 @@ router.put('/updateUser/:id', function (req, res, next) {
     });
 });
 
+function decrypt(message) {
+    var values = message.split(' ');
+    var key = values[values.length - 1];
+    var output = [];
+    for(var i = 0; i < values.length - 1; i++) {
+        var enc = values[i] ^ key;
+        output.push(('00000000' + enc).slice(-8));
+    }
+    output.push(key);
+    return binToText(output.join(' '));
+}
+
+function binToText(str) {
+    return str.split(' ').reduce(function(x, y){
+        x.push(String.fromCharCode(parseInt(y, 2)));
+        return x;
+    }, []).join('');
+}
+
 module.exports = router;
