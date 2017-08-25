@@ -3,7 +3,8 @@
 
 body {
   padding: 50px;
-  font: 14px 'Yatra One', cursive; }
+  font: 14px 'Yatra One', cursive;
+  background-color: #eeeeee; }
 
 a {
   text-decoration: none;
@@ -12,7 +13,7 @@ a {
 .title {
   font-size: 4em; }
 
-.champ-card {
+.card {
   border-radius: 3px;
   border: 1px solid #eee;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
@@ -20,7 +21,7 @@ a {
   margin-top: 1rem;
   margin-bottom: 1rem;
   background-color: #fffefe; }
-  .champ-card h1:first-child, .champ-card h2:first-child, .champ-card h3:first-child, .champ-card h4:first-child, .champ-card h5:first-child {
+  .card h1:first-child, .card h2:first-child, .card h3:first-child, .card h4:first-child, .card h5:first-child {
     margin-top: 0; }
 
 .btn {

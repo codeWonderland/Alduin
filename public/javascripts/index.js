@@ -10,7 +10,7 @@
       response = mergeSort(response);
       for (i = 0, len = response.length; i < len; i++) {
         dm = response[i];
-        document.getElementById('dm-list').innerHTML += '<a href="/creators/' + dm._Id + '"><div class="champ-card dm-card"><h2>' + dm.DisplayName + '</h2></div></a>';
+        document.getElementById('dm-list').innerHTML += '<a href="/creators/' + dm._Id + '"><div class="card dm-card"><h2>' + dm.DisplayName + '</h2></div></a>';
       }
     });
   };

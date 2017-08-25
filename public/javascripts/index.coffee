@@ -5,7 +5,7 @@ $(document).ready ->
 @createTempHome = ->
   getRequest('/creators/getCreators', (response) ->
     response = mergeSort(response)
-    document.getElementById('dm-list').innerHTML += '<a href="/creators/' + dm._Id + '"><div class="champ-card dm-card"><h2>' + dm.DisplayName + '</h2></div></a>' for dm in response
+    document.getElementById('dm-list').innerHTML += '<a href="/creators/' + dm._Id + '"><div class="card dm-card"><h2>' + dm.DisplayName + '</h2></div></a>' for dm in response
     return
   )
   

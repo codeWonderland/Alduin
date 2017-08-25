@@ -5,6 +5,8 @@ append styles
 
 append body
     div#creator-container
+    div(style={ "text-align" : "center"})
+        a.btn(href="/") Back to Home
     script(src='/javascripts/creators/profile.min.js')
     script.
         var user = !{user}
