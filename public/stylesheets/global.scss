@@ -43,3 +43,19 @@ a {
     color: #fff;
   }
 }
+
+// Search used in html as such <input id="specific-id-for-awesomeplete" class="search" data-autofirst="true" type="text" name="search" placeholder="Search..">
+.search {
+  width: 325%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 20px 12px 40px;
+  background-image: url('/images/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
