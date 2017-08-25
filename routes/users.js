@@ -25,7 +25,7 @@ router.post('/addUser', function(req, res, next) {
     var SecondaryGame = req.body.SecondaryGame;
     var Bio = req.body.Bio;
     var LastLoggedIn = req.body.LastLoggedIn;
-    var ProfilePicture = req.body.ProfilePicture; //This will be the filename of the profile picture that will exhist in /images/avatars
+    var ProfilePicture = req.body.ProfilePicture; //This will be the filename of the profile picture that will exist in /images/avatars
     var Email = req.body.Email;
     if (!((UserName === null || UserName === '') || (Password === null || Password === '') || DOB === null || LastLoggedIn === null || Email === null)) {
         if (DisplayName === null)
@@ -39,7 +39,7 @@ router.post('/addUser', function(req, res, next) {
         if (Bio === null)
             Bio = '';
         if (ProfilePicture === null || ProfilePicture === '')
-            ProfilePicture = 'images/avatars/default.png';
+            ProfilePicture = 'images/avatars/default.jpg';
         
         if (typeof(UserName) === 'string' && typeof(Password) === 'string' && typeof(DisplayName) === 'string' && typeof(DOB) === 'number' && typeof(City) === 'string' && typeof(PrimaryGame) === 'string' && typeof(SecondaryGame) === 'string' && typeof(Bio) === 'string' && typeof(LastLoggedIn) === 'number' && typeof(ProfilePicture) === 'string') {
             var con = mysql.createConnection({
