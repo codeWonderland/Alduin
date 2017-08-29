@@ -46,7 +46,7 @@ router.post('/addUser', function(req, res, next) {
                 host: "localhost",
                 user: "root",
                 password: "password",
-                database: "AlduinDB"
+                database: "AnduinDB"
             });
             
             con.connect(function(err) {
@@ -70,7 +70,7 @@ router.get('/getUsers', function(req, res, next) {
         host: "localhost",
         user: "root",
         password: "password",
-        database: "AlduinDB"
+        database: "AnduinDB"
     });
     
     con.connect(function(err) {
@@ -90,7 +90,7 @@ router.get('/getUsernames', function(req, res, next) {
         host: "localhost",
         user: "root",
         password: "password",
-        database: "AlduinDB"
+        database: "AnduinDB"
     });
     
     con.connect(function(err) {
@@ -110,7 +110,7 @@ router.get('/getEmails', function(req, res, next) {
         host: "localhost",
         user: "root",
         password: "password",
-        database: "AlduinDB"
+        database: "AnduinDB"
     });
     
     con.connect(function(err) {
@@ -132,7 +132,7 @@ router.get('/getLoggedInState', function(req, res, next) {
         host: "localhost",
         user: "root",
         password: "password",
-        database: "AlduinDB"
+        database: "AnduinDB"
     });
     
     // here we want to check the macAddress against the most recent mac address used in the database,
@@ -155,7 +155,7 @@ router.get('/:id', function(req, res, next) {
         host: "localhost",
         user: "root",
         password: "password",
-        database: "AlduinDB"
+        database: "AnduinDB"
     });
     
     con.connect(function(err) {
@@ -174,7 +174,7 @@ router.get('/userInfo/:id', function(req, res, next) {
         host: "localhost",
         user: "root",
         password: "password",
-        database: "AlduinDB"
+        database: "AnduinDB"
     });
     
     con.connect(function(err) {
@@ -200,7 +200,7 @@ router.delete('/deleteUser/:id', function(req, res, next) {
         host: "localhost",
         user: "root",
         password: "password",
-        database: "AlduinDB"
+        database: "AnduinDB"
     });
     
     con.connect(function(err) {

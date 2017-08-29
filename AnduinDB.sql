@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 5.7.19, for macos10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.18, for osx10.12 (x86_64)
 --
--- Host: localhost    Database: AlduinDB
+-- Host: localhost    Database: AnduinDB
 -- ------------------------------------------------------
 -- Server version	5.7.19
 
@@ -321,4 +321,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-25 16:20:16
+-- Dump completed on 2017-08-29  9:24:46

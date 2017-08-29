@@ -13,7 +13,7 @@ router.get('/getCreators', function(req, res, next) {
         host: "localhost",
         user: "root",
         password: "password",
-        database: "AlduinDB"
+        database: "AnduinDB"
     });
     
     con.connect(function(err) {
@@ -32,7 +32,7 @@ router.get('/:id', function(req, res, next) {
         host: "localhost",
         user: "root",
         password: "password",
-        database: "AlduinDB"
+        database: "AnduinDB"
     });
     
     con.connect(function(err) {
